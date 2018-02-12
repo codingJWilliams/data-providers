@@ -15,6 +15,6 @@
   ~ limitations under the License.
 -->
 <resources>
-    <string name="app_name">Complications Data Provider Codelab</string>
-    <string name="complications_provider_service_label">Complication Provider Service</string>
+    <string name="app_name">Timetabler</string>
+    <string name="complications_provider_service_label">Timetabler Service</string>
 </resources>

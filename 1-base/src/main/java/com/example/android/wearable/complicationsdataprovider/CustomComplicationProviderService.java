@@ -61,7 +61,44 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
     public void onComplicationUpdate(
             int complicationId, int dataType, ComplicationManager complicationManager) {
         Log.d(TAG, "onComplicationUpdate() id: " + complicationId);
+        // Used to create a unique key to use with SharedPreferences for this complication.
+        ComponentName thisProvider = new ComponentName(this, getClass());
 
+        // Retrieves your data, in this case, we grab an incrementing number from SharedPrefs.
+        SharedPreferences preferences =
+                getSharedPreferences(
+                        ComplicationTapBroadcastReceiver.COMPLICATION_PROVIDER_PREFERENCES_FILE_KEY,
+                        0);
+        int number =
+                preferences.getInt(
+                        ComplicationTapBroadcastReceiver.getPreferenceKey(
+                                thisProvider, complicationId),
+                        0);
+        String numberText = String.format(Locale.getDefault(), "%d!", number);
+
+        ComplicationData complicationData = null;
+
+        switch (dataType) {
+            case ComplicationData.TYPE_SHORT_TEXT:
+                complicationData =
+                        new ComplicationData.Builder(ComplicationData.TYPE_SHORT_TEXT)
+                                .setShortText(ComplicationText.plainText(numberText))
+                                .build();
+                break;
+            default:
+                if (Log.isLoggable(TAG, Log.WARN)) {
+                    Log.w(TAG, "Unexpected complication type " + dataType);
+                }
+        }
+
+        if (complicationData != null) {
+            complicationManager.updateComplicationData(complicationId, complicationData);
+
+        } else {
+            // If no data is sent, we still need to inform the ComplicationManager, so the update
+            // job can finish and the wake lock isn't held any longer than necessary.
+            complicationManager.noUpdateRequired(complicationId);
+        }
     }
 
     /*
