@@ -39,7 +39,7 @@
 
             <meta-data
                 android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
-                android:value="6"/>
+                android:value="1"/>
         </service>
 
         <receiver android:name=".ComplicationTapBroadcastReceiver"/>

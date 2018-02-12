@@ -25,7 +25,9 @@ import android.support.wearable.complications.ComplicationProviderService;
 import android.support.wearable.complications.ComplicationText;
 import android.util.Log;
 
+import java.util.Date;
 import java.util.Locale;
+import org.joda.time.DateTime;
 
 /**
  * Example watch face complication data provider provides a number that can be incremented on tap.
@@ -62,19 +64,10 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
             int complicationId, int dataType, ComplicationManager complicationManager) {
         Log.d(TAG, "onComplicationUpdate() id: " + complicationId);
         // Used to create a unique key to use with SharedPreferences for this complication.
-        ComponentName thisProvider = new ComponentName(this, getClass());
-
-        // Retrieves your data, in this case, we grab an incrementing number from SharedPrefs.
-        SharedPreferences preferences =
-                getSharedPreferences(
-                        ComplicationTapBroadcastReceiver.COMPLICATION_PROVIDER_PREFERENCES_FILE_KEY,
-                        0);
-        int number =
-                preferences.getInt(
-                        ComplicationTapBroadcastReceiver.getPreferenceKey(
-                                thisProvider, complicationId),
-                        0);
-        String numberText = String.format(Locale.getDefault(), "%d!", number);
+        Date rn = new Date();
+        DateTime rnDt = new DateTime(rn);
+        Integer thing = rnDt.getSecondOfMinute();
+        String numberText = thing.toString();
 
         ComplicationData complicationData = null;
 
@@ -83,6 +76,7 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
                 complicationData =
                         new ComplicationData.Builder(ComplicationData.TYPE_SHORT_TEXT)
                                 .setShortText(ComplicationText.plainText(numberText))
+                                .setShortTitle(ComplicationText.plainText("Room"))
                                 .build();
                 break;
             default:

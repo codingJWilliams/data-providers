@@ -41,4 +41,5 @@ dependencies {
     provided 'com.google.android.wearable:wearable:2.0.1'
     compile 'com.google.android.support:wearable:2.0.1'
     compile 'com.google.android.gms:play-services-wearable:10.2.4'
+    compile 'joda-time:joda-time:2.9.9'
 }
