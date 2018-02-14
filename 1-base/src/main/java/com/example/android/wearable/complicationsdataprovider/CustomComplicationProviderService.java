@@ -54,14 +54,14 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
         Log.d(TAG, "onComplicationActivated(): " + complicationId);
     }
     public static String roomTimetable[][] = {
-            {"Form", "C2-5", "C2-5", "Break", "D2-4", "D2-4", "D1-5", "Lunch", "A0-3", "Home"},
-            {"Form", "D2-3", "A1-4", "Break", "C2-4", "C2-4", "A0-3", "Lunch", "D2-3", "Home"},
-            {"Form", "A0-3", "D1-5", "Break", "D2-3", "D2-3", "A1-4", "Lunch", "E1-2", "Home"},
-            {"Form", "A1-4", "A1-4", "Break", "A2-3", "A2-3", "D1-5", "Lunch", "D1-5", "Home"},
-            {"Form", "A2-3", "A2-3", "Break", "A1-4", "A1-4", "A0-3", "Lunch", "A0-3", "Home"}
+            {"C2-5", "C2-5", "Break", "D2-4", "D2-4", "D1-5", "Lunch", "A0-3"},
+            {"D2-3", "A1-4", "Break", "C2-4", "C2-4", "A0-3", "Lunch", "D2-3"},
+            {"A0-3", "D1-5", "Break", "D2-3", "D2-3", "A1-4", "Lunch", "E1-2"},
+            {"A1-4", "A1-4", "Break", "A2-3", "A2-3", "D1-5", "Lunch", "D1-5"},
+            {"A2-3", "A2-3", "Break", "A1-4", "A1-4", "A0-3", "Lunch", "A0-3"}
     };
     public static String timings[] = {
-            "8:00", "9:15", "10:05", "10:55", "11:10", "12:00", "12:50", "13:40", "14:05", "15:00"
+            "9:15", "10:05", "10:55", "11:10", "12:00", "12:50", "13:40", "14:05", "15:00"
     };
     public static int compareTime(String a, String b) {
         /**
@@ -152,4 +152,3 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
         Log.d(TAG, "onComplicationDeactivated(): " + complicationId);
     }
 }
-   
