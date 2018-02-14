@@ -100,8 +100,8 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
     @SuppressWarnings("deprecation")
     public static String getTheString() {
         Date now = new Date();
-        int hrs = now.getHours() + 1;
-        int mins = now.getMinutes() + 1;
+        int hrs = now.getHours();
+        int mins = now.getMinutes();
         int day = now.getDay() - 1;
         if (day == -1 || day == 5) return "X"; // If it's a weekend return X
         if (hrs >= 15) return "X";
