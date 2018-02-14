@@ -11,19 +11,6 @@ import java.util.Date;
 public class CustomComplicationProviderService extends ComplicationProviderService {
 
     private static final String TAG = "ComplicationProvider";
-
-    /*
-     * Called when a complication has been activated. The method is for any one-time
-     * (per complication) set-up.
-     *
-     * You can continue sending data for the active complicationId until onComplicationDeactivated()
-     * is called.
-     */
-    @Override
-    public void onComplicationActivated(
-            int complicationId, int dataType, ComplicationManager complicationManager) {
-        Log.d(TAG, "onComplicationActivated(): " + complicationId);
-    }
     public static String roomTimetable[][] = {
             {"C2-5", "C2-5", "Break", "D2-4", "D2-4", "D1-5", "Lunch", "A0-3"},
             {"D2-3", "A1-4", "Break", "C2-4", "C2-4", "A0-3", "Lunch", "D2-3"},
