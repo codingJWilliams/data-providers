@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<manifest package="com.example.android.wearable.complicationsdataprovider"
+<manifest package="com.example.android.wearable.dataprovider"
           xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-feature android:name="android.hardware.type.watch"/>
 
@@ -25,7 +25,7 @@
                  android:theme="@android:style/Theme.DeviceDefault">
 
         <service
-            android:name=".CustomComplicationProviderService"
+            android:name="me.jaywilliams.timetabler.dataprovider.CustomComplicationProviderService"
             android:icon="@drawable/ic_watch_white"
             android:label="Timetabler - Room"
             android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
@@ -42,7 +42,7 @@
                 android:value="1"/>
         </service>
 
-        <receiver android:name=".ComplicationTapBroadcastReceiver"/>
+        <receiver android:name="me.jaywilliams.timetabler.dataprovider.ComplicationTapBroadcastReceiver"/>
     </application>
 
 </manifest>
