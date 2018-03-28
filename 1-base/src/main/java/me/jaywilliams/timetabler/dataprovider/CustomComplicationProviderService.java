@@ -12,11 +12,11 @@ public class CustomComplicationProviderService extends ComplicationProviderServi
 
     private static final String TAG = "ComplicationProvider";
     public static String roomTimetable[][] = {
-            {"C2-5", "C2-5", "Break", "D2-4", "D2-4", "D1-5", "Lunch", "A0-3"},
-            {"D2-3", "A1-4", "Break", "C2-4", "C2-4", "A0-3", "Lunch", "D2-3"},
-            {"A0-3", "D1-5", "Break", "D2-3", "D2-3", "A1-4", "Lunch", "E1-2"},
-            {"A1-4", "A1-4", "Break", "A2-3", "A2-3", "D1-5", "Lunch", "D1-5"},
-            {"A2-3", "A2-3", "Break", "A1-4", "A1-4", "A0-3", "Lunch", "A0-3"}
+            {"C2-5", "C2-5", "Break", "D2-3", "A2-3", "D1-5", "Lunch", "D2-4"},
+            {"C2-4", "C2-4", "Break", "A0-6", "D2-3", "D2-3", "Lunch", "A1-4"},
+            {"D2-3", "D2-3", "Break", "A1-4", "E1-2", "A1-4", "Lunch", "A0-6"},
+            {"A0-6", "A1-4", "Break", "A2-3", "A2-3", "D1-5", "Lunch", "D1-5"},
+            {"A1-4", "A1-4", "Break", "A0-6", "A0-6", "A2-3", "Lunch", "D1-5"}
     };
     public static String timings[] = {
             "9:15", "10:05", "10:55", "11:10", "12:00", "12:50", "13:40", "14:05", "15:00"
